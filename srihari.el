@@ -7,3 +7,24 @@
 (add-hook 'ruby-mode-hook
           (lambda () (run-hooks 'srihari-code-modes-hook)))
 ;;done hooking to rubymode
+
+;;Line up down using https://github.com/bbatsov/emacs-prelude/blob/master/prelude-core.el#L111
+;;
+(defun move-line-up ()
+  "Move up the current line."
+  (interactive)
+  (transpose-lines 1)
+  (previous-line 2))
+
+(global-set-key [(control shift up)] 'move-line-up)
+
+(defun move-line-down ()
+  "Move down the current line."
+  (interactive)
+  (next-line 1)
+  (transpose-lines 1)
+  (previous-line 1))
+
+(global-set-key [(control shift down)] 'move-line-down)
+
+;;End line up down
