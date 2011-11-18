@@ -8,6 +8,9 @@
 (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.thor\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile.lock" . ruby-mode))
 
 (global-set-key (kbd "M-r") 'ruby-compilation-this-buffer)
 
@@ -24,7 +27,7 @@
 (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
 
 ;; C-l inserts a hash mark
-(eval-after-load 'ruby-mode 
+(eval-after-load 'ruby-mode
   '(progn
      (define-key ruby-mode-map (kbd "C-l") " => ")))
 (eval-after-load 'rhtml-mode
@@ -33,8 +36,8 @@
 (eval-after-load 'rhtml-mode
   '(progn
      (define-key rhtml-mode-map (kbd "C->") 'rinari-insert-erb-skeleton)
-     (define-key rhtml-mode-map (kbd "C-M->") (lambda () 
-                                                (interactive) 
+     (define-key rhtml-mode-map (kbd "C-M->") (lambda ()
+                                                (interactive)
                                                 (rinari-insert-erb-skeleton 0)))))
 
 (require 'yasnippet)
