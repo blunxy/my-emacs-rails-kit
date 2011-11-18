@@ -3,3 +3,4 @@ elpa/*
 url/*
 custom.el
 auto-save-list
+.session
