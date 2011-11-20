@@ -26,5 +26,5 @@
   (previous-line 1))
 
 (global-set-key [(control shift down)] 'move-line-down)
-
+(set-face-attribute 'default nil :font "Droid Sans Mono-10")
 ;;End line up down
