@@ -54,6 +54,7 @@
 (global-set-key   [f7]   'rename-buffer)
 (global-set-key   [f8]   'search-backward-regexp)
 (global-set-key   [f9]   'search-forward-regexp)
+(global-set-key   [f11]  'speedbar-get-focus)
 (cd "~/studio/yiqitou")
 
 (setenv "PAGER" "cat")
@@ -88,6 +89,27 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
+
+(require 'cedet)
+
+;; cscope not worked for ruby
+;; (require 'xcscope)
+;; (add-hook 'ruby-mode-hook
+;; 	  '(lambda ()
+;; 	    (require 'xcscope)))
+
+;; Enabling various SEMANTIC minor modes.  See semantic/INSTALL for more ideas.
+;;To startup quickly
+;; Select one of the following
+;; (semantic-load-enable-code-helpers)
+;; (semantic-load-enable-guady-code-helpers)
+;;(semantic-load-enable-excessive-code-helpers)
+
+;; Enable this if you develop in semantic, or develop grammars
+;; (semantic-load-enable-semantic-debugging-helpers)
+
+;;To startup quickly
+;; (require 'ecb-autoloads)
 
 ;; init.el end
 
