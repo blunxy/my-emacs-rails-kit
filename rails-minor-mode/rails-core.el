@@ -33,6 +33,8 @@
     "app/views"
     "app/models"
     "app/helpers"
+    "app/assets"
+    "app/mailers"
     "test/unit"
     "test/functional"
     "test/fixtures"
