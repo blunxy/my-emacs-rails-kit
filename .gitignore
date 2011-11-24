@@ -5,3 +5,4 @@ custom.el
 auto-save-list
 session*
 .session
+abbrev_defs
