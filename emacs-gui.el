@@ -47,11 +47,12 @@
 
 ;; color theme - with merbivore and vibrant ink themes included
 (load-lib-dir "vendor/color-theme")
-(load-lib-dir "vendor/color-theme-merbivore")
+;;(load-lib-dir "vendor/color-theme-merbivore")
 (require 'color-theme)
 (color-theme-initialize)
 (setq color-theme-is-global t)
-(load-file (concat root-dir "/vendor/color-theme-merbivore/color-theme-merbivore.el"))
+;;(load-file (concat root-dir "/vendor/color-theme-merbivore/color-theme-merbivore.el"))
 
 ;; load the theme
-(color-theme-merbivore)
+;;(color-theme-merbivore)
+(color-theme-calm-forest)

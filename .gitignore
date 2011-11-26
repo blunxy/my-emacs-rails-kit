@@ -3,3 +3,6 @@ elpa/*
 url/*
 custom.el
 auto-save-list
+tramp
+session.*
+abbrev_defs
