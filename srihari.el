@@ -33,3 +33,23 @@
 (require 'coffee-mode)
 
 (setq default-cursor-type 'bar)
+;;End line up down
+
+; Temporary files cluttering up the space are annoying.  Here's how we
+; can deal with them -- create a directory in your home directory, and
+; save to there instead!  No more random ~ files.
+(defvar user-temporary-file-directory
+  "~/.emacs-autosaves/")
+(make-directory user-temporary-file-directory t)
+(setq backup-by-copying t)
+(setq backup-directory-alist
+      `(("." . ,user-temporary-file-directory)
+              (tramp-file-name-regexp nil)))
+(setq auto-save-list-file-prefix
+      (concat user-temporary-file-directory ".auto-saves-"))
+(setq auto-save-file-name-transforms
+      `((".*" ,user-temporary-file-directory t)))
+
+(eval-after-load 'ruby-mode '(require 'rails-apidock))
+(eval-after-load 'rhtml-mode '(require 'rails-apidock))
+
