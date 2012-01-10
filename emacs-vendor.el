@@ -45,4 +45,4 @@
 (setq espresso-indent-level 2)
 
 ;; Cheat - for using cheat.errtheblog.com for some reference
-(require 'cheat)
+;; (require 'cheat)
