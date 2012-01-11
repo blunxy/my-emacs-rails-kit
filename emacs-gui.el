@@ -13,14 +13,14 @@
 
 ;; smoother scrolling
 (setq
- scroll-margin 0                  
+ scroll-margin 0
   scroll-conservatively 100000
   scroll-preserve-screen-position 1)
 
 ; apply syntax highlighting to all buffers
 (global-font-lock-mode t)
 
-;; Full screen toggle 
+;; Full screen toggle
 (defun toggle-fullscreen ()
   (interactive)
   (set-frame-parameter nil 'fullscreen (if (frame-parameter nil 'fullscreen)
@@ -48,10 +48,11 @@
 ;; color theme - with merbivore and vibrant ink themes included
 (load-lib-dir "vendor/color-theme")
 (load-lib-dir "vendor/color-theme-merbivore")
+(load-lib-dir "vendor/color-theme-solarized-20120111")
 (require 'color-theme)
 (color-theme-initialize)
 (setq color-theme-is-global t)
 (load-file (concat root-dir "/vendor/color-theme-merbivore/color-theme-merbivore.el"))
-
+(load-file (concat root-dir "/vendor/color-theme-solarized-20120111/color-theme-solarized.el"))
 ;; load the theme
 (color-theme-merbivore)

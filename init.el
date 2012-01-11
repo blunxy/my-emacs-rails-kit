@@ -66,7 +66,11 @@
 
 ;;(require 'color-theme)
 ;;(color-theme-initialize)
-(color-theme-calm-forest)
+;; (color-theme-calm-forest)
+;;(require 'color-theme-solarized)
+(color-theme-solarized-dark)
+;; (color-theme-solarized-light)
+
 ;;(tool-bar-mode -1) ;; hide toolbar
 ;;(menu-bar-mode -1) ;;
 (setq inhibit-splash-screen t)
