@@ -50,11 +50,11 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (set-frame-size-according-to-resolution)
 (desktop-save-mode 1)
-(require 'session)
+(require 'session) ;; remember load seesion in packages
 (add-hook 'after-init-hook
           'session-initialize)
 ;;(set-default-font "Courier New-14")
-(set-face-attribute 'default nil :height 130)
+(set-face-attribute 'default nil :height 180)
 (global-set-key   [f2]   'ruby-mode)
 ;; (global-set-key [f5] 'revert-buffer) ;; has defined in emacs-gui.el
 (global-set-key   [f6]   'goto-line)
@@ -62,7 +62,7 @@
 (global-set-key   [f8]   'search-backward-regexp)
 (global-set-key   [f9]   'search-forward-regexp)
 (global-set-key   [f11]  'speedbar-get-focus)
-(cd "~/studio/yiqitou")
+(cd "~/studio")
 
 (setenv "PAGER" "cat")
 ;; seems not worked in emacs shell
@@ -75,10 +75,11 @@
 ;;(color-theme-initialize)
 ;; (color-theme-calm-forest)
 ;;(require 'color-theme-solarized)
-(color-theme-solarized-dark)
-;;(load-file "~/.emacs.d/elpa/color-theme-railscasts-0.0.2/color-theme-railscasts.el")
-;;(color-theme-railscasts)
+;;(color-theme-solarized-dark)
 ;; (color-theme-solarized-light)
+
+(load-file "~/.emacs.d/elpa/color-theme-railscasts-0.0.2/color-theme-railscasts.el")
+(color-theme-railscasts)
 
 ;;(tool-bar-mode -1) ;; hide toolbar
 ;;(menu-bar-mode -1) ;;

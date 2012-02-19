@@ -5,4 +5,5 @@ custom.el
 auto-save-list
 session*
 .session
+.emacs.desktop
 abbrev_defs
