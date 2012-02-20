@@ -106,7 +106,14 @@
 (setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
 
-(require 'cedet)
+;; use eval-buffer to repalce this command
+(defun reload-init-file ()
+  "reload your .emacs file without restarting Emacs"
+  (interactive)
+  (load-file "~/.emacs.d/init.el") )
+
+
+;;(require 'cedet)
 
 ;; cscope not worked for ruby
 ;; (require 'xcscope)

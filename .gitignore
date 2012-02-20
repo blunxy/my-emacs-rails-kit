@@ -6,4 +6,5 @@ auto-save-list
 session*
 .session
 .emacs.desktop
+.emacs.desktop.lock
 abbrev_defs
