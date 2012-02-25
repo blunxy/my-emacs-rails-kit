@@ -71,8 +71,8 @@
 ;; but not resolve the problem of "WARNING: terminal is not fully functional   emacs"  running M-x term is a method,but not good, M-x man reslove the man command problem,also not complete
 ;;(require 'magit)
 
-;;(require 'color-theme)
-;;(color-theme-initialize)
+(require 'color-theme)
+(color-theme-initialize)
 ;; (color-theme-calm-forest)
 ;;(require 'color-theme-solarized)
 ;;(color-theme-solarized-dark)
@@ -113,6 +113,17 @@
   (load-file "~/.emacs.d/init.el") )
 
 
+;; transparent buffer effect
+(set-frame-parameter (selected-frame) 'alpha '(100 100))
+(eval-when-compile (require 'cl))
+(defun toggle-transparency ()
+  (interactive)
+  (if (/=
+       (cadr (frame-parameter nil 'alpha))
+       100)
+      (set-frame-parameter nil 'alpha '(100 100))
+    (set-frame-parameter nil 'alpha '(85 50))))
+(global-set-key (kbd "C-c t") 'toggle-transparency)
 ;;(require 'cedet)
 
 ;; cscope not worked for ruby
