@@ -56,7 +56,7 @@
 ;;(set-default-font "Courier New-14")
 (set-face-attribute 'default nil :height 180)
 (global-set-key   [f2]   'ruby-mode)
-;; (global-set-key [f5] 'revert-buffer) ;; has defined in emacs-gui.el
+(global-set-key [f5] 'revert-buffer) ;; has defined in emacs-gui.el
 (global-set-key   [f6]   'goto-line)
 (global-set-key   [f7]   'rename-buffer)
 (global-set-key   [f8]   'search-backward-regexp)
@@ -72,7 +72,7 @@
 ;;(require 'magit)
 
 (require 'color-theme)
-(color-theme-initialize)
+;;(color-theme-initialize)
 ;; (color-theme-calm-forest)
 ;;(require 'color-theme-solarized)
 ;;(color-theme-solarized-dark)
@@ -112,9 +112,8 @@
   (interactive)
   (load-file "~/.emacs.d/init.el") )
 
-
 ;; transparent buffer effect
-(set-frame-parameter (selected-frame) 'alpha '(100 100))
+(set-frame-parameter (selected-frame) 'alpha '(85 50))
 (eval-when-compile (require 'cl))
 (defun toggle-transparency ()
   (interactive)
@@ -125,6 +124,9 @@
     (set-frame-parameter nil 'alpha '(85 50))))
 (global-set-key (kbd "C-c t") 'toggle-transparency)
 ;;(require 'cedet)
+
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
 ;; cscope not worked for ruby
 ;; (require 'xcscope)
