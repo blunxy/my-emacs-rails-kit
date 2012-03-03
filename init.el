@@ -54,7 +54,7 @@
 (add-hook 'after-init-hook
           'session-initialize)
 ;;(set-default-font "Courier New-14")
-(set-face-attribute 'default nil :height 180)
+(set-face-attribute 'default nil :height 150)
 (global-set-key   [f2]   'ruby-mode)
 (global-set-key [f5] 'revert-buffer) ;; has defined in emacs-gui.el
 (global-set-key   [f6]   'goto-line)
