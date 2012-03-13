@@ -62,6 +62,7 @@
 (global-set-key   [f8]   'search-backward-regexp)
 (global-set-key   [f9]   'search-forward-regexp)
 (global-set-key   [f11]  'speedbar-get-focus)
+(global-set-key  (kbd "C-x RET")  'shell)
 (cd "~/studio")
 
 (setenv "PAGER" "cat")
