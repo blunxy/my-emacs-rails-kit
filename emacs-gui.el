@@ -51,8 +51,7 @@
 (require 'color-theme)
 (color-theme-initialize)
 (setq color-theme-is-global t)
-;;(load-file (concat root-dir "/vendor/color-theme-merbivore/color-theme-merbivore.el"))
+(load-file (concat root-dir "/vendor/color-theme-tango2/color-theme-tango-2.el"))
 
 ;; load the theme
-;;(color-theme-merbivore)
-(color-theme-calm-forest)
+(color-theme-tango-2)
