@@ -129,6 +129,8 @@
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
+;;Tips use ansi-term mode to login ssh
+
 ;; cscope not worked for ruby
 ;; (require 'xcscope)
 ;; (add-hook 'ruby-mode-hook
