@@ -35,16 +35,16 @@
 (setq default-cursor-type 'bar)
 ;;End line up down
 
-; Temporary files cluttering up the space are annoying.  Here's how we
-; can deal with them -- create a directory in your home directory, and
-; save to there instead!  No more random ~ files.
+                                        ; Temporary files cluttering up the space are annoying.  Here's how we
+                                        ; can deal with them -- create a directory in your home directory, and
+                                        ; save to there instead!  No more random ~ files.
 (defvar user-temporary-file-directory
   "~/.emacs-autosaves/")
 (make-directory user-temporary-file-directory t)
 (setq backup-by-copying t)
 (setq backup-directory-alist
       `(("." . ,user-temporary-file-directory)
-              (tramp-file-name-regexp nil)))
+        (tramp-file-name-regexp nil)))
 (setq auto-save-list-file-prefix
       (concat user-temporary-file-directory ".auto-saves-"))
 (setq auto-save-file-name-transforms
@@ -53,3 +53,18 @@
 (eval-after-load 'ruby-mode '(require 'rails-apidock))
 (eval-after-load 'rhtml-mode '(require 'rails-apidock))
 
+(defun revert-all-buffers ()
+  "Refreshes all open buffers from their respective files"
+  (interactive)
+  (let* ((list (buffer-list))
+         (buffer (car list)))
+    (while buffer
+      (when (and (buffer-file-name buffer) 
+                 (not (buffer-modified-p buffer)))
+        (set-buffer buffer)
+        (revert-buffer t t t))
+      (setq list (cdr list))
+      (setq buffer (car list))))
+  (message "Refreshed open files"))
+
+(global-set-key [(control f5)] 'revert-all-buffers)
