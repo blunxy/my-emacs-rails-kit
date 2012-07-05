@@ -51,7 +51,5 @@
 (color-theme-initialize)
 (setq color-theme-is-global t)
 (load-file (concat root-dir "/vendor/color-theme-tango2/color-theme-tango-2.el"))
-
->>>>>>> upper/master
 ;; load the theme
 (color-theme-tango-2)
