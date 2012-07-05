@@ -239,5 +239,4 @@
 ;;     (flymake-mode-on)))
 ;; (add-hook 'find-file-hook 'turn-on-flymake-for-erb-files)
 
-
-;; init.el end
+ ;; init.el end

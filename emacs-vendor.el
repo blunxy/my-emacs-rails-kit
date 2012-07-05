@@ -45,4 +45,11 @@
 (setq espresso-indent-level 2)
 
 ;; Cheat - for using cheat.errtheblog.com for some reference
-;; (require 'cheat)
+(require 'cheat)
+
+
+;; Asciidoc
+(autoload 'doc-mode "doc-mode.el"
+   "Major mode for editing asciidoc files" t)
+(setq auto-mode-alist
+   (cons '("\\.asciidoc" . doc-mode) auto-mode-alist))
