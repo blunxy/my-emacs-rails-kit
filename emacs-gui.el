@@ -47,12 +47,11 @@
 
 ;; color theme - with merbivore and vibrant ink themes included
 (load-lib-dir "vendor/color-theme")
-(load-lib-dir "vendor/color-theme-merbivore")
-(load-lib-dir "vendor/color-theme-solarized-20120111")
 (require 'color-theme)
 (color-theme-initialize)
 (setq color-theme-is-global t)
-(load-file (concat root-dir "/vendor/color-theme-merbivore/color-theme-merbivore.el"))
-(load-file (concat root-dir "/vendor/color-theme-solarized-20120111/color-theme-solarized.el"))
+(load-file (concat root-dir "/vendor/color-theme-tango2/color-theme-tango-2.el"))
+
+>>>>>>> upper/master
 ;; load the theme
-(color-theme-merbivore)
+(color-theme-tango-2)
