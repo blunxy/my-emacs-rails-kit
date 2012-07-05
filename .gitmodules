@@ -1,9 +1,6 @@
 [submodule "vendor/rhtml"]
 	path = vendor/rhtml
 	url = git://github.com/eschulte/rhtml.git
-[submodule "vendor/color-theme-merbivore"]
-	path = vendor/color-theme-merbivore
-	url = git://github.com/mig/color-theme-merbivore.git
 [submodule "vendor/yasnippets-rails"]
 	path = vendor/yasnippets-rails
 	url = git://github.com/eschulte/yasnippets-rails.git
