@@ -1,7 +1,8 @@
 ;; set emacs path
-(setq path "/bin:/usr/local/bin:/usr/bin:/usr/sbin:~/.gem/ruby/1.8/bin")
+(setq path "/bin:/usr/local/bin:/usr/bin:/usr/sbin:~/.rbenv/shims")
 (setenv "PATH" path)
 (push "/usr/local/bin" exec-path)
+(push "~/.rbenv/shims" exec-path)
 
 ;; autocomplete
 (setq eshell-cmpl-cycle-completions nil)
@@ -16,11 +17,11 @@
 ;; scroll to bottom on output, more like a terminal
 (setq eshell-scroll-to-bottom-on-output t)
 (setq eshell-scroll-show-maximum-output t)
- 
+
 ;; colorful shell
 (require 'ansi-color)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
- 
+
 ;; escape the shell
 (add-hook 'eshell-mode-hook
   '(lambda nil (local-set-key "\C-u" 'eshell-kill-input)))
