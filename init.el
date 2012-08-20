@@ -63,7 +63,7 @@
 (global-set-key   [f9]   'search-forward-regexp)
 (global-set-key   [f11]  'speedbar-get-focus)
 (global-set-key  (kbd "C-x RET")  'shell)
-(cd "~/studio")
+(cd "~/studio/ticdev")
 
 (setenv "PAGER" "cat")
 ;; seems not worked in emacs shell
