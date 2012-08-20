@@ -47,6 +47,11 @@
 
 (require 'rails)
 
+(defun kill-other-buffers ()
+  "Kill all other buffers."
+  (interactive)
+  (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
+
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (set-frame-size-according-to-resolution)
 (desktop-save-mode 1)
