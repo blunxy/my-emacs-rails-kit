@@ -64,10 +64,12 @@
 (global-set-key [f5] 'revert-buffer) ;; has defined in emacs-gui.el
 (global-set-key   [f6]   'goto-line)
 (global-set-key   [f7]   'rename-buffer)
-(global-set-key   [f8]   'search-backward-regexp)
-(global-set-key   [f9]   'search-forward-regexp)
+;;(global-set-key   [f8]   'search-backward-regexp)
+;;(global-set-key   [f9]   'search-forward-regexp)# C-s has been mapped to search-forward-regexp
 (global-set-key   [f11]  'speedbar-get-focus)
 (global-set-key  (kbd "C-x RET")  'shell)
+(global-set-key (kbd "C-c C-g c") 'magit-git-command)
+
 (cd "~/studio/ticdev")
 
 (setenv "PAGER" "cat")
