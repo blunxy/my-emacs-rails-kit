@@ -9,7 +9,7 @@
 (set-default 'imenu-auto-rescan t)
 (setq mac-emulate-three-button-mouse nil)
 
-(mouse-wheel-mode t)
+;; (mouse-wheel-mode t)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
