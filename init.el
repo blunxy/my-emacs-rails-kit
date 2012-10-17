@@ -54,10 +54,10 @@
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (set-frame-size-according-to-resolution)
-(desktop-save-mode 1)
-(require 'session) ;; remember load seesion in packages
-(add-hook 'after-init-hook
-          'session-initialize)
+(desktop-save-mode 0)
+;; (require 'session) ;; remember load seesion in packages
+;; (add-hook 'after-init-hook
+;;         'session-initialize)
 ;;(set-default-font "Courier New-14")
 (set-face-attribute 'default nil :height 160)
 (global-set-key   [f2]   'ruby-mode)
