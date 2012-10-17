@@ -1,4 +1,8 @@
-;; init.el - from which all other configuration flows
+;; initx.el - from which all other configuration flows
+
+
+
+
 
 (require 'cl)
 (require 'ansi-color)
@@ -70,9 +74,9 @@
 (global-set-key  (kbd "C-x RET")  'shell)
 (global-set-key (kbd "C-c C-g c") 'magit-git-command)
 
-(cd "~/studio/ticdev")
+(global-set-key "\C-xo" 'win-switch-dispatch)
 
-(setenv "PAGER" "cat")
+;; (setenv "PAGER" "cat")
 ;; seems not worked in emacs shell
 ;;(setenv "EDITOR" "/usr/bin/emacsclient") ;; `which emacsclient`
 ;;(server-start)
