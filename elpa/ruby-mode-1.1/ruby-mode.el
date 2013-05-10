@@ -26,6 +26,14 @@
 
 ;;; Code:
 
+
+(eval-after-load 'ruby-mode
+  '(progn
+     (add-to-list 'ruby-font-lock-syntactic-keywords
+                  '("\\(\\(\\)\\(\\)\\|Given\\|When\\|Then\\)\\s *\\(/\\)[^/\n\\\\]*\\(\\\\.[^/\n\\\\]*\\)*\\(/\\)"
+                    (4 (7 . ?/))
+                    (6 (7 . ?/))))))
+
 (eval-when-compile (require 'cl))
 
 (defconst ruby-keyword-end-re
@@ -768,7 +776,7 @@ and `\\' when preceded by `?'."
           (setq indent (ruby-indent-size (current-column) (nth 2 state))))
          (t
           (setq indent (+ (current-column) ruby-indent-level)))))
-       
+
        ((and (nth 2 state) (< (nth 2 state) 0)) ; in negative nest
         (setq indent (ruby-indent-size (current-column) (nth 2 state)))))
       (when indent

@@ -203,7 +203,7 @@ If PROMPT-P is non-nil, or if called interactively, Prompts for visiting
 search result\(s\)."
   (let ((*dirs* (findr-make-queue))
         *found-files*)
-    (labels ((findr-1 (dir)
+    (cl-labels ((findr-1 (dir)
                (message "Searching %s ..." dir)
                (let ((files (directory-files dir t "\\w")))
                  (loop

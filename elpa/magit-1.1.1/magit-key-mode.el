@@ -1,6 +1,6 @@
 (require 'magit)
+;(require 'assoc)
 
-(require 'assoc)
 (eval-when-compile (require 'cl))
 
 (defvar magit-key-mode-key-maps '()

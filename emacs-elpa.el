@@ -7,13 +7,13 @@
 (package-initialize)
 
 ;; these packages will install when you first start emacs-rails-kit
-(defvar auto-install-packages (list 
+(defvar auto-install-packages (list
                                'css-mode
                                'full-ack
-                               'ruby-mode 
-                               'rinari 
+                               'ruby-mode
+                               'rinari
                                'rspec-mode
-                               'textmate 
+                               'textmate
                                'yaml-mode
                                'yasnippet-bundle)
   "Libraries that should be installed by default.")
@@ -26,6 +26,6 @@
                 (functionp package))
       (message "Installing %s" (symbol-name package))
       (package-install package))))
-      
+
 (unless package-archive-contents (package-refresh-contents))
 (starter-kit-elpa-install)

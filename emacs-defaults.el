@@ -25,9 +25,11 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; Don't clutter up directories with files~
-(setq backup-directory-alist 
+(setq backup-directory-alist
       `(("." . ,(expand-file-name
                  (concat root-dir "backups")))))
 
 ;; open any .bash files in sh-mode
 (add-to-list 'auto-mode-alist '("\\.bash.*" . sh-mode))
+
+(setq rspec-use-rake-flag nil)

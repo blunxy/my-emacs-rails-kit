@@ -53,3 +53,4 @@
    "Major mode for editing asciidoc files" t)
 (setq auto-mode-alist
    (cons '("\\.asciidoc" . doc-mode) auto-mode-alist))
+

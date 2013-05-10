@@ -3,8 +3,8 @@
 ;;; Code:
 
 
-;;;### (autoloads nil nil ("yaml-mode-pkg.el" "yaml-mode.el") (20237
-;;;;;;  703 159912))
+;;;### (autoloads nil nil ("yaml-mode-pkg.el" "yaml-mode.el") (20872
+;;;;;;  12119 159201 173000))
 
 ;;;***
 

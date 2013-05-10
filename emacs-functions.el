@@ -48,3 +48,108 @@
     ;; get the height we want
     (add-to-list 'default-frame-alist
                  (cons 'height (/ (- (x-display-pixel-height) 200) (frame-char-height)))))))
+
+(defun run-current-spec ()
+  (interactive)
+  (if (string-match  "_spec.rb\\>" (buffer-file-name))
+      (emamux:run-command (format "rspec -c %s" (buffer-file-name))))
+  (if (string-match "\\.feature\\>" (buffer-file-name))
+      (emamux:run-command (format "cu %s" (buffer-file-name))))
+)
+(global-set-key "\C-c\C-d" 'run-current-spec)
+
+(defun run-all-spec ()
+  (interactive)
+  (setq path_to_project "~/the-rspec-book/codebreaker")
+  (emamux:run-command (concatenate 'string "rspec -c " path_to_project)))
+
+
+(defun run-all-feature ()
+  (interactive)
+  (emamux:run-command (format "cucumber ~/the-rspec-book/codebreaker")))
+
+
+(defun parent-directory (dir)
+  (unless (equal "/home/jpratt/" dir)
+    (file-name-directory (directory-file-name dir))))
+
+(defun boop ()
+  (let* ((cmd (format "tmux new-window -n test_results;tmux send-keys -t :test_results 'cd ~/the-rspec-book/codebreaker;rspec -c' enter")))
+        (call-process-shell-command cmd nil nil nil)))
+
+;; +---------
+;; | My test commands
+;; |
+;; +---------
+
+;; The full way to:
+;;   1) create a new window
+;;   2) run a test in that window
+;;
+;;   (let* ((cmd (format "tmux new-window -n test_results;tmux send-keys -t :test_results 'cd ~/the-rspec-book/codebreaker;rspec -c' enter")))
+;;        (call-process-shell-command cmd nil nil nil)))
+;;
+;; Break it up into bite-sized pieces and we get the following....
+
+(defun project-root()
+  "~/the-rspec-book/codebreaker"
+)
+
+(defun run-test-command(cmd)
+  (call-process-shell-command cmd nil nil nil))
+
+(defun run-current-test ()
+  (interactive)
+  (if (string-match  "_spec.rb\\>" (buffer-file-name))
+      (run-test-command (build-test-cmd (spec-cmd buffer-file-name) (parent-dir buffer-file-name)))
+    (if (string-match "\\.feature\\>" (buffer-file-name))
+      (run-test-command (build-test-cmd (cucumber-cmd buffer-file-name) (parent-dir buffer-file-name))))))
+(global-set-key "\C-c\C-d" 'run-current-test)
+
+(defun parent-dir(file)
+  (file-name-directory(directory-file-name file)))
+
+(defun booger()
+  (interactive)
+  (setq foo (spec-cmd buffer-file-name))
+  (message foo))
+
+(defun run-all-specs ()
+  (interactive)
+  (run-test-command (build-test-cmd (spec-cmd) (project-root))))
+(global-set-key "\C-c\C-e" 'run-all-specs)
+
+(defun run-all-features ()
+  (interactive)
+  (run-test-command (build-test-cmd (cucumber-cmd) (project-root))))
+(global-set-key "\C-c\C-f" 'run-all-features)
+
+(defun build-test-cmd(test-cmd run-location)
+  (setq new-test-result-window-cmd "tmux new-window -n test_results")
+  (setq jump-to-project-cmd (format "cd %s" run-location))
+  (setq send-cmd (format "tmux send-keys -t :test_results '%s;%s' ENTER" jump-to-project-cmd test-cmd))
+  (format "%s;%s" new-test-result-window-cmd send-cmd))
+
+
+(defun spec-cmd(&optional file)
+  (if file
+      (format "rspec -c %s" file)
+    "rspec -c"))
+
+(defun cucumber-cmd(&optional file)
+  (if file
+      (format "cucumber %s" file)
+    "cucumber"))
+
+
+(defun find-test-root (curr-dir)
+  (cond
+   ((string-match "spec/$" curr-dir) curr-dir)
+   ((string-match "features/$" curr-dir) curr-dir)
+   (t (let ((parent (parent-directory(expand-file-name curr-dir)))
+            (child "fierce"))
+        (when parent
+          (cond
+           ((string-match "spec/$" parent) parent)
+           ((string-match "features/$" parent) parent)
+           (t (find-test-rt parent))))))))
